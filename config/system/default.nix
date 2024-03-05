@@ -7,6 +7,7 @@
     ./disk.nix
     ./packages.nix
     ./persistence.nix
+    ./services.nix
   ];
 }
 
