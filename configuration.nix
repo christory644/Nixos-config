@@ -7,8 +7,6 @@
 {
 
   nixpkgs.config.allowUnfree = true;
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
   
   sound.enable = true;
   hardware.pulseaudio.enable = false;
