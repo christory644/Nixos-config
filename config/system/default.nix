@@ -10,6 +10,7 @@
     ./displayManager.nix
     ./gpu
     ./microsoftSurface.nix
+    ./opengl.nix
     ./packages.nix
     ./persistence.nix
     ./services.nix
