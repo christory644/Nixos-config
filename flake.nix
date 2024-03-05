@@ -10,7 +10,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {nixpkgs, disko, impermanence, home-manager, ...} @ inputs:
+  outputs = inputs@{nixpkgs, disko, impermanence, home-manager, ...}:
   {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       specialArgs = {
@@ -18,12 +18,18 @@
       };
       modules = [
         impermanence.nixosModules.impermanence
-        home-manager.nixosModules.default
         disko.nixosModules.default
         (import ./disko.nix { device = "/dev/nvme0n1"; })
 
         ./configuration.nix
-              
+
+	home-manager.nixosModules.home-manager {
+	  home-manager.extraSpecialArgs = { inherit inputs; };
+	  home-manager.useGlobalPkgs = true;
+	  home-manager.useUserPackages = true;
+	  home-manager.backupFileExtension = "backup";
+	  home-manager.users.christory = import ./home.nix;
+	}
       ];
     };
   };

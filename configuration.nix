@@ -10,7 +10,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      (import ./disko.nix { device = "/dev/nvme0n1"; })
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -143,12 +142,6 @@
   };
 
   programs.fuse.userAllowOther = true;
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "christory" = import ./home.nix;
-    };
-  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
