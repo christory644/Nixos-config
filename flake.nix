@@ -24,7 +24,6 @@
         disko.nixosModules.default
 
 	./system.nix
-        ./configuration.nix
 
 	home-manager.nixosModules.home-manager {
 	  home-manager.extraSpecialArgs = { inherit inputs; };
