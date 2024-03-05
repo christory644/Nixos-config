@@ -9,6 +9,7 @@
     ./disk.nix
     ./displayManager.nix
     ./gpu
+    ./logitech.nix
     ./microsoftSurface.nix
     ./opengl.nix
     ./packages.nix
