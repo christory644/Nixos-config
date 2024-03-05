@@ -11,16 +11,20 @@
   };
 
   outputs = inputs@{nixpkgs, disko, impermanence, home-manager, ...}:
-  {
+  let
+    system = "x86_64-linux";
+  in {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       specialArgs = {
         inherit inputs;
+	inherit system;
       };
       modules = [
         impermanence.nixosModules.impermanence
         disko.nixosModules.default
         (import ./disko.nix { device = "/dev/nvme0n1"; })
 
+	./system.nix
         ./configuration.nix
 
 	home-manager.nixosModules.home-manager {
