@@ -4,6 +4,7 @@
   imports = [
     ./boot.nix
     ./disk.nix
+    ./persistence.nix
   ];
 }
 
