@@ -3,14 +3,15 @@
      
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOs/nixos-hardware/master";
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     impermanence.url = "github:nix-community/impermanence";
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{nixpkgs, disko, impermanence, home-manager, ...}:
+  outputs = inputs@{nixpkgs, nixos-hardware, disko, impermanence, home-manager, ...}:
   let
     system = "x86_64-linux";
   in {
@@ -20,6 +21,7 @@
 	inherit system;
       };
       modules = [
+	nixos-hardware.nixosModules.microsoft-surface-common
         impermanence.nixosModules.impermanence
         disko.nixosModules.default
 
