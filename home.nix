@@ -34,4 +34,10 @@
     ];
     allowOther = true;
   };
+
+  programs.git = {
+    enable = true;
+    userName = "Christopher Story";
+    userEmail = "christory@pm.me";
+  };
 }
