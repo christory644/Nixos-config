@@ -7,6 +7,7 @@
 
   home.stateVersion = "23.11";
 
+
   home.persistence."/persisted/home" = {
     directories = [
       "Documents"

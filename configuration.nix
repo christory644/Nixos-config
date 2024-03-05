@@ -6,7 +6,6 @@
 
 {
 
-  nixpkgs.config.allowUnfree = true;
   
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -25,8 +24,6 @@
   # Enable the Plasma 5 Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma6.enable = true;
-
-  programs.fuse.userAllowOther = true;
 
 }
 
