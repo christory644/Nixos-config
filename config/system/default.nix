@@ -14,6 +14,7 @@
     ./opengl.nix
     ./packages.nix
     ./persistence.nix
+    ./printer.nix
     ./services.nix
   ];
 }

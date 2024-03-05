@@ -5,11 +5,12 @@
   environment.persistence."/persisted/system" = {
     hideMounts = true;
     directories = [
+      "/etc/cups"
+      "/etc/NetworkManager/system-connections"
       "/var/log"
       "/var/lib/bluetooth"
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
-      "/etc/NetworkManager/system-connections"
     ];
     files = [
       "/etc/machine-id"
