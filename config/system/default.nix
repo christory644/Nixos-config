@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./autorotation.nix
     ./bluetooth.nix
     ./boot.nix
     ./desktopEnvironment.nix
