@@ -1,36 +1,29 @@
 {
-  description = "Nixos config flake";
+  description = "Christory's NixOS Flake";
      
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    impermanence = {
-      url = "github:nix-community/impermanence";
-    };
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+    impermanence.url = "github:nix-community/impermanence";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {nixpkgs, ...} @ inputs:
+  outputs = {nixpkgs, disko, impermanence, home-manager, ...} @ inputs:
   {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      specialArgs = {
+        inherit inputs;
+      };
       modules = [
-        inputs.disko.nixosModules.default
+        impermanence.nixosModules.impermanence
+        home-manager.nixosModules.default
+        disko.nixosModules.default
         (import ./disko.nix { device = "/dev/nvme0n1"; })
 
         ./configuration.nix
               
-        inputs.home-manager.nixosModules.default
-        inputs.impermanence.nixosModules.impermanence
       ];
     };
   };
