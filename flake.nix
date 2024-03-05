@@ -22,7 +22,6 @@
       modules = [
         impermanence.nixosModules.impermanence
         disko.nixosModules.default
-        (import ./disko.nix { device = "/dev/nvme0n1"; })
 
 	./system.nix
         ./configuration.nix
