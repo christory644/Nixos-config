@@ -8,6 +8,7 @@
     ./desktopEnvironment.nix
     ./disk.nix
     ./displayManager.nix
+    ./gpu
     ./microsoftSurface.nix
     ./packages.nix
     ./persistence.nix
