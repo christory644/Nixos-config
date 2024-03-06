@@ -35,5 +35,6 @@ in {
   enableFlatpak = false;
   enableVirtualization = false;
   enableLogitechSupport = true;
+  enableAppimageSupport = true;
 }
 
