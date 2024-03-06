@@ -16,6 +16,9 @@ in lib.mkIf (userShell == "bash") {
         source $HOME/.bashrc-personal
       fi
     '';
+    bashrcExtra = ''
+      bind "set completion-ignore-case on"
+    '';
     sessionVariables = {
       FLAKE_BACKUP = "${flakeBackup}";
       FLAKE_PREVIOUS = "${flakePrev}";
