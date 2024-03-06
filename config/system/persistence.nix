@@ -1,7 +1,4 @@
 {
-  # maybe this isn't needed, but it's in the docs
-  programs.fuse.userAllowOther = true;
-
   environment.persistence."/persisted/system" = {
     hideMounts = true;
     directories = [
