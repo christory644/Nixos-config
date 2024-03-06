@@ -15,6 +15,7 @@ in {
 
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
+    ./config/home
   ];
 
   home.persistence."/persisted/home" = {
