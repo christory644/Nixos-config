@@ -8,7 +8,7 @@
     ./desktopEnvironment.nix
     ./disk.nix
     ./displayManager.nix
-    ./gpu
+    ./gpu/intelNvidia.nix
     ./logitech.nix
     ./microsoftSurface.nix
     ./opengl.nix
