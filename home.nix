@@ -1,12 +1,21 @@
-{ pkgs, inputs, ... }:
+{ config, pkgs, inputs, username, ... }:
 
-{
+let
+  inherit (import ./options.nix)
+    gitUsername
+    gitEmail
+    flakeDir
+    username
+    userHome;
+in {
+  # home manager settings
+  home.username = "${username}";
+  home.homeDirectory = "${userHome}";
+  home.stateVersion = "23.11";
+
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
   ];
-
-  home.stateVersion = "23.11";
-
 
   home.persistence."/persisted/home" = {
     directories = [
@@ -37,7 +46,8 @@
 
   programs.git = {
     enable = true;
-    userName = "Christopher Story";
-    userEmail = "christory@pm.me";
+    userName = "${gitUsername}";
+    userEmail = "${gitEmail}";
   };
 }
+

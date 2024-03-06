@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
-{
+let inherit (import ../../../options.nix) intelBusID nvidiaBusID;
+in {
   environment.systemPackages = with pkgs; [
     nvitop
   ];
@@ -30,11 +31,11 @@
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-    # configure nvidia prime, nixos.wiki/wiki/Nvidia for more details
+    # configure nvidia prime
     prime = {
       sync.enable = true;
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:243:0:0";
+      intelBusId = "${intelBusID}";
+      nvidiaBusId = "${nvidiaBusID}";
     };
   };
 }
