@@ -45,7 +45,7 @@ in {
       description = "${gitUsername}";
       homeMode = "755";
       # use mkpasswd -m sha-512 newPassword to generate a new hashed pass
-      hashedPassword = "$6$1f7/THGTjbX.ZlR8$Kf0.LZuQqdU6VZxGvNm2oWFXtCj/tg7MQCWRK0QH6AgcjhllOLGYswVh9vy3pkGLnCwkYR38fvA8350MALBwt/";
+      hashedPassword = "$6$KAs3Mz0mY.fpjdWe$45R71AhZVstzAPvdUpMlge.zVTCzhr1Mq6JmthxOON3at2Z8iwf.6UF/dACytbXzJ.2ii84PWWvZJQBlBNLJL1";
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" ];
       shell = pkgs.${userShell};
