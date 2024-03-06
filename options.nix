@@ -16,6 +16,7 @@ in {
   flakeDir = "${flakeDir}";
   flakePrev = "${userHome}/.nixflake/previous";
   flakeBackup = "${userHome}/.nixflake/backup";
+  userShell = "bash"; # options: bash, zsh
 
   # system vars
   systemLocale = "${locale}";

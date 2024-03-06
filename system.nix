@@ -1,26 +1,59 @@
 { inputs, config, pkgs, ... }:
 
-{
+let inherit (import ./options.nix)
+  flakeDir
+  gitUsername
+  hostname
+  systemKBDLayout
+  systemLCVars
+  systemLocale
+  systemTimezone
+  username
+  userShell;
+in {
   imports = [
     ./hardware.nix
     ./config/system
   ];
 
   # enable networking
-  networking.hostName = "christorySLS";
+  networking.hostName = "${hostname}";
   networking.networkmanager.enable = true;
 
   # set system timezone
-  time.timeZone = "America/Chicago";
+  time.timeZone = "${systemTimezone}";
+
+  # Select internationalisation properties
+  i18n.defaultLocale = "${systemLocale}";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "${systemLCVars}";
+    LC_IDENTIFICATION = "${systemLCVars}";
+    LC_MEASUREMENT = "${systemLCVars}";
+    LC_MONETARY = "${systemLCVars}";
+    LC_NAME = "${systemLCVars}";
+    LC_NUMERIC = "${systemLCVars}";
+    LC_PAPER = "${systemLCVars}";
+    LC_TELEPHONE = "${systemLCVars}";
+    LC_TIME = "${systemLCVars}";
+  };
+
+  console.keyMap = "${systemKBDLayout}";
 
   users = {
     mutableUsers = true;
     users.christory = {
+      description = "${gitUsername}";
       homeMode = "755";
       initialPassword = "12345";
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" ];
+      shell = pkgs.${userShell};
+      ignoreShellProgramCheck = true;
     };
+  };
+
+  environment.variables = {
+    FLAKE = "${flakeDir}";
   };
 
   nix = {
