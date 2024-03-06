@@ -49,5 +49,15 @@ in {
     userName = "${gitUsername}";
     userEmail = "${gitEmail}";
   };
+
+  # create XDG directories
+  xdg = {
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
+  };
+
+  programs.home-manager.enable = true;
 }
 
