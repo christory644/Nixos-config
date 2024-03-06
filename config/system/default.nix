@@ -19,6 +19,7 @@
     ./persistence.nix
     ./printer.nix
     ./services.nix
+    ./vm.nix
   ];
 }
 

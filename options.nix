@@ -22,6 +22,7 @@ in {
   systemLCVars = "${locale}";
   systemKBDLayout = "us";
   systemTimezone = "America/Chicago";
+  systemCpuType = "intel"; # options: intel, amd, vm
 
   # for nvidia hybrid devices, we need these values.
   # see nixos.wiki/wiki/Nvidia for more details
