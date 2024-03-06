@@ -39,5 +39,6 @@ in {
   enableLogitechSupport = true;
   enableAppimageSupport = true;
   enableBluetoothSupport = true;
+  enableMicrosoftSurfaceSupport = true;
 }
 
