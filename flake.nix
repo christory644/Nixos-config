@@ -14,11 +14,20 @@
   outputs = inputs@{nixpkgs, nixos-hardware, disko, impermanence, home-manager, ...}:
   let
     system = "x86_64-linux";
+    inherit (import ./options.nix) username hostname;
+    pkgs = import nixpkgs {
+      inherit system;
+      config = {
+        allowUnfree = true;
+      };
+    };
   in {
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
       specialArgs = {
+        inherit hostname;
         inherit inputs;
 	inherit system;
+	inherit username;
       };
       modules = [
 	nixos-hardware.nixosModules.microsoft-surface-common
@@ -32,7 +41,7 @@
 	  home-manager.useGlobalPkgs = true;
 	  home-manager.useUserPackages = true;
 	  home-manager.backupFileExtension = "backup";
-	  home-manager.users.christory = import ./home.nix;
+	  home-manager.users.${username} = import ./home.nix;
 	}
       ];
     };
