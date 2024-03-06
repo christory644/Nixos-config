@@ -38,5 +38,6 @@ in {
   enableVirtualization = false;
   enableLogitechSupport = true;
   enableAppimageSupport = true;
+  enableBluetoothSupport = true;
 }
 
