@@ -40,5 +40,6 @@ in {
   enableAppimageSupport = true;
   enableBluetoothSupport = true;
   enableMicrosoftSurfaceSupport = true;
+  enableAutorotationSupport = true;
 }
 
