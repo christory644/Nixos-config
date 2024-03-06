@@ -11,6 +11,7 @@
     ./gpu/intelNvidia.nix
     ./logitech.nix
     ./microsoftSurface.nix
+    ./ntp.nix
     ./opengl.nix
     ./packages.nix
     ./persistence.nix
