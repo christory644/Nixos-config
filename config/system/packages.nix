@@ -12,6 +12,7 @@
     discord # move to home manager eventually
     eza
     firefox # move to home manager eventually
+    fortune
     git
     htop
     lm_sensors
