@@ -44,7 +44,8 @@ in {
     users.christory = {
       description = "${gitUsername}";
       homeMode = "755";
-      initialPassword = "12345";
+      # use mkpasswd -m sha-512 newPassword to generate a new hashed pass
+      hashedPassword = "$6$1f7/THGTjbX.ZlR8$Kf0.LZuQqdU6VZxGvNm2oWFXtCj/tg7MQCWRK0QH6AgcjhllOLGYswVh9vy3pkGLnCwkYR38fvA8350MALBwt/";
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" ];
       shell = pkgs.${userShell};
