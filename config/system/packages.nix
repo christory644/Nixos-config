@@ -3,15 +3,11 @@
 {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    asciiquarium
     appimage-run
     btop
-    cmatrix
     cowsay
     curl
-    discord # move to home manager eventually
     eza
-    firefox # move to home manager eventually
     fortune
     git
     htop
