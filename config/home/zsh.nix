@@ -8,9 +8,14 @@ let inherit (import ../../options.nix)
 in lib.mkIf (userShell == "zsh") {
   programs.zsh = {
     enable = true;
-    syntaxHighlighting.enable = true;
+    autocd = true;
     enableAutosuggestions = true;
     historySubstringSearch.enable = true;
+
+    syntaxHighlighting = {
+      enable = true;
+      highlighters = [ "brackets" ];
+    };
 
     initExtra = ''
       zstyle ':completion:*' matcher-list "" 'm:{a-zA-Z}={A-Za-z}'       	# Case insensitive tab completion
@@ -27,6 +32,8 @@ in lib.mkIf (userShell == "zsh") {
       if [ -f $HOME/.zshrc-personal ]; then
         source $HOME/.zshrc-personal
       fi
+      eval "$(zoxide init zsh)"
+      eval "$(starship init zsh)"
     '';
 
     history = {

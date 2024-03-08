@@ -9,6 +9,7 @@
     curl
     eza
     fortune
+    fzf
     git
     htop
     lm_sensors
@@ -27,6 +28,7 @@
     vim
     wget
     wl-clipboard
+    zoxide
   ];
 
   programs = {
