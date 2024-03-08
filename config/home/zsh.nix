@@ -13,6 +13,9 @@ in lib.mkIf (userShell == "zsh") {
     historySubstringSearch.enable = true;
 
     initExtra = ''
+      zstyle ':completion:*' matcher-list "" 'm:{a-zA-Z}={A-Za-z}'       	# Case insensitive tab completion
+      zstyle ':completion:*' menu select
+      autoload -Uz compinit && compinit
       bindkey '^[[3~' delete-char                     # Key Del
       bindkey '^[[5~' beginning-of-buffer-or-history  # Key Page Up
       bindkey '^[[6~' end-of-buffer-or-history        # Key Page Down
@@ -44,7 +47,6 @@ in lib.mkIf (userShell == "zsh") {
       setopt numericglobsort						# sort filenames numerically when it makes sense
       setopt appendhistory						# immediately append history instead of overwriting
       unsetopt histignorealldups					# if a new command is a duplicate, do not remove the older one from history
-      zstyle ':completion:*' matcher-list "" 'm:{a-zA-Z}={A-Za-z}'       	# Case insensitive tab completion
       zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"       	# Colored completion (different colors for dirs/files/etc)
       zstyle ':completion:*' rehash true                              	# automatically find new executables in path
       # Speed up completions
@@ -53,7 +55,6 @@ in lib.mkIf (userShell == "zsh") {
       mkdir -p "$(dirname ${userHome}/.config/zsh/history)"
       mkdir -p "$(dirname ${userHome}/.config/zsh/completion-cache)"
       zstyle ':completion:*' cache-path "${userHome}/.config/zsh/completion-cache"
-      zstyle ':completion:*' menu select
     '';
     shellAliases = {
       sv = "sudo nvim";
