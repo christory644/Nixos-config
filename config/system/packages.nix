@@ -28,7 +28,6 @@
     vim
     wget
     wl-clipboard
-    zoxide
   ];
 
   programs = {

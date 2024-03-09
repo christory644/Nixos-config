@@ -32,7 +32,6 @@ in lib.mkIf (userShell == "zsh") {
       if [ -f $HOME/.zshrc-personal ]; then
         source $HOME/.zshrc-personal
       fi
-      eval "$(zoxide init zsh)"
       eval "$(starship init zsh)"
     '';
 
