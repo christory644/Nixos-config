@@ -7,6 +7,19 @@ let inherit (import ../../options.nix)
 in {
   programs.fish = {
     enable = true;
+    plugins = with pkgs.fishPlugins; [
+      {
+        name = "done";
+	inherit (pkgs.fishPlugins.done) src;
+      }
+      #colored-man-pages
+      #done
+      #fzf
+      #pisces
+      #puffer
+      #sponge
+      #z
+    ];
     shellAliases = {
       sv = "sudo nvim";
       flake-rebuild="nh os switch --nom --hostname ${hostname}";
