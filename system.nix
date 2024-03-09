@@ -48,7 +48,6 @@ in {
       hashedPassword = "$6$KAs3Mz0mY.fpjdWe$45R71AhZVstzAPvdUpMlge.zVTCzhr1Mq6JmthxOON3at2Z8iwf.6UF/dACytbXzJ.2ii84PWWvZJQBlBNLJL1";
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" ];
-      shell = pkgs.${userShell};
       ignoreShellProgramCheck = true;
     };
   };

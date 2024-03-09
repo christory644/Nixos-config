@@ -1,11 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 let inherit (import ../../options.nix)
   flakeDir
   hostname
-  userHome
-  userShell;
-in lib.mkIf (userShell == "fish") {
+  userHome;
+in {
   programs.fish = {
     enable = true;
     shellAliases = {

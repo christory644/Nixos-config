@@ -1,11 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 let inherit (import ../../options.nix)
   flakeDir
   hostname
-  userHome
-  userShell;
-in lib.mkIf (userShell == "zsh") {
+  userHome;
+in {
   programs.zsh = {
     enable = true;
     autocd = true;

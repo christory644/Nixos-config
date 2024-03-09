@@ -1,12 +1,11 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 let inherit (import ../../options.nix)
   flakeDir
   flakePrev
   flakeBackup
-  hostname
-  userShell;
-in lib.mkIf (userShell == "bash") {
+  hostname;
+in {
   programs.bash = {
     enable = true;
     enableCompletion = true;
