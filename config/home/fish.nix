@@ -21,6 +21,9 @@ in lib.mkIf (userShell == "fish") {
       ".."="cd ..";
       neofetch = "neofetch --ascii \"$(fortune | cowsay -f $(ls /run/current-system/sw/share/cowsay/cows | shuf -n1) -W 60)\"";
     };
+    shellInitLast = ''
+      starship init fish | source
+    '';
   };
 }
 
