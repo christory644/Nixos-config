@@ -11,7 +11,6 @@
     ./displayManager.nix
     ./flatpak.nix
     ./gpu/intelNvidia.nix
-    ./lf.nix
     ./logitech.nix
     ./microsoftSurface.nix
     ./ntp.nix
