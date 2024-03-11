@@ -34,14 +34,14 @@ in {
       ".local/share/kwalletd"
       ".local/share/systemsettings"
       ".ssh"
-      {
-        directory = "./local/share/Steam";
-	method = "symlink";
-      }
+#      {
+#        directory = "./local/share/Steam";
+#	method = "symlink";
+#      }
     ];
-    files = [
-      ".screenrc"
-    ];
+#    files = [
+#      ".screenrc"
+#    ];
     allowOther = true;
   };
 
