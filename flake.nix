@@ -31,7 +31,6 @@
 	inherit username;
       };
       modules = [
-	nixos-hardware.nixosModules.microsoft-surface-common
         impermanence.nixosModules.impermanence
         disko.nixosModules.default
 
