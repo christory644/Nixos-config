@@ -7,6 +7,7 @@
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
       inputs.nixos-hardware.nixosModules.microsoft-surface-common
+      ./config/system/disk.nix
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];

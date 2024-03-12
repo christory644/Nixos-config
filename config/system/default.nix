@@ -7,7 +7,6 @@
     ./bluetooth.nix
     ./boot.nix
     ./desktopEnvironment.nix
-    ./disk.nix
     ./displayManager.nix
     ./flatpak.nix
     ./gpu/intelNvidia.nix
