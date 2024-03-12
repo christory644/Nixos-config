@@ -34,6 +34,7 @@
         impermanence.nixosModules.impermanence
         disko.nixosModules.default
 
+	./hosts
 	./system.nix
 
 	home-manager.nixosModules.home-manager {

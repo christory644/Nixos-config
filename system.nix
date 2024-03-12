@@ -12,7 +12,6 @@ let inherit (import ./options.nix)
   userShell;
 in {
   imports = [
-    ./hardware.nix
     ./config/system
   ];
 
