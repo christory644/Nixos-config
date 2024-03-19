@@ -12,6 +12,7 @@ in {
     neovide
     obs-studio
     spotify
+    tree
   ];
 
   programs.gh.enable = true;

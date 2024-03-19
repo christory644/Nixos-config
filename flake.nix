@@ -2,14 +2,17 @@
   description = "Christory's NixOS Flake";
      
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixos-hardware.url = "github:NixOs/nixos-hardware/master";
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
-    impermanence.url = "github:nix-community/impermanence";
-    hyprland.url = "github:hyprwm/Hyprland";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
+    hyprland-plugins.inputs.hyprland.follows = "hyprland";
+    impermanence.url = "github:nix-community/impermanence";
+    nix-colors.url = "github:misterio77/nix-colors";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOs/nixos-hardware/master";
   };
 
   outputs = inputs@{nixpkgs, nixos-hardware, disko, impermanence, home-manager, ...}:
@@ -38,7 +41,11 @@
 	./system.nix
 
 	home-manager.nixosModules.home-manager {
-	  home-manager.extraSpecialArgs = { inherit inputs; };
+	  home-manager.extraSpecialArgs = { 
+	    inherit inputs;
+	    inherit username;
+	    inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
+	  };
 	  home-manager.useGlobalPkgs = true;
 	  home-manager.useUserPackages = true;
 	  home-manager.backupFileExtension = "backup";

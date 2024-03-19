@@ -10,13 +10,14 @@
     ./displayManager.nix
     ./flatpak.nix
     ./gpu/intelNvidia.nix
-    #./hyprlnd.nix
+    ./hyprlnd.nix
     ./logitech.nix
     ./microsoftSurface.nix
     ./ntp.nix
     ./opengl.nix
     ./packages.nix
     ./persistence.nix
+    ./polkit.nix
     ./printer.nix
     ./services.nix
     ./vm.nix

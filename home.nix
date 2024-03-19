@@ -1,10 +1,11 @@
-{ config, pkgs, inputs, username, ... }:
+{ config, gtkThemeFromScheme, pkgs, inputs, username, ... }:
 
 let
   inherit (import ./options.nix)
     gitUsername
     gitEmail
     flakeDir
+    theme
     username
     userHome;
 in {
@@ -13,7 +14,10 @@ in {
   home.homeDirectory = "${userHome}";
   home.stateVersion = "23.11";
 
+  colorScheme = inputs.nix-colors.colorSchemes."${theme}";
+
   imports = [
+    inputs.nix-colors.homeManagerModules.default
     inputs.impermanence.nixosModules.home-manager.impermanence
     ./config/home
   ];
