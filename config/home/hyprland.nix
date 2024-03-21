@@ -35,6 +35,7 @@ in with lib; {
     extraConfig = let
       modifier = "SUPER";
     in concatStrings [ ''
+      monitor=eDP-1,preferred,auto,1.5
       monitor=,preferred,auto,1
       windowrule = fullscreen, ^(wlogout)$
       windowrule = animation fade,^(wlogout)$
@@ -61,7 +62,7 @@ in with lib; {
       }
       env = LIBVA_DRIVER_NAME, nvidia
       env = GBM_BACKEND, nvidia-drm
-      env = WLR_DRM_DEVICES, /dev/dr/card1:/dev/dri/card0
+      env = WLR_DRM_DEVICES, /dev/dri/card1:/dev/dri/card0
       env = WLR_NO_HARDWARE_CURSORS, 1
       env = NIXOS_OZONE_WL, 1
       env = NIXPKGS_ALLOW_UNFREE, 1
