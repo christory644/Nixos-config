@@ -6,7 +6,7 @@
 
   environment.sessionVariables = {
     # stops cursor from becoming invisible, maybe not needed?
-    # WLR_NO_HARDWARE_CURSORS = "1";
+    WLR_NO_HARDWARE_CURSORS = "1";
     # Hint electron apps to use wayland
     NIXOS_OZONE_WL = "1";
   };
