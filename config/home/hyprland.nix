@@ -54,11 +54,15 @@ in with lib; {
         kb_options=caps:super
         follow_mouse = 1
         touchpad {
-          natural_scroll = false
+          natural_scroll = true
         }
         sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
         accel_profile = flat
       }
+      env = LIBVA_DRIVER_NAME, nvidia
+      env = GBM_BACKEND, nvidia-drm
+      env = __GLX_VENDOR_LIBRARY_NAME, nvidia
+      env = WLR_NO_HARDWARE_CURSORS, 1
       env = NIXOS_OZONE_WL, 1
       env = NIXPKGS_ALLOW_UNFREE, 1
       env = XDG_CURRENT_DESKTOP, Hyprland
