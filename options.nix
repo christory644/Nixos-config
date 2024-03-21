@@ -21,7 +21,7 @@ in {
   flakePrev = "${userHome}/.nixflake/previous";
   flakeBackup = "${userHome}/.nixflake/backup";
   screenshotDir = "${userHome}/Pictures/Screenshots";
-  theme = "atelier-cave";
+  theme = "catppuccin-macchiato";
   use24HourClock = false;
   userShell = "fish"; # options: bash, fish, zsh
   userMainBrowser = "firefox";

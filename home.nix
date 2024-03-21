@@ -33,6 +33,7 @@ in {
       "VirtualBox VMs"
       ".gnupg"
       ".config/discord"
+      ".config/spotify"
       ".local/share/direnv"
       ".local/share/keyrings"
       ".local/share/kwalletd"

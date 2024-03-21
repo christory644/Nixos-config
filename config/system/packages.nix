@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
     appimage-run
     bat
+    brightnessctl
     btop
     cowsay
     curl
@@ -23,6 +24,7 @@
     nh
     noto-fonts-color-emoji
     ripgrep
+    swappy
     symbola
     unrar
     unzip
@@ -30,6 +32,7 @@
     vim
     wget
     wl-clipboard
+    yad
   ];
 
   programs = {

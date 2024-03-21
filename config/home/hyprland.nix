@@ -145,7 +145,7 @@ in with lib; {
       bind = ALT,SPACE,exec,rofi-launcher
       bind = ${modifier}SHIFT,Return,exec,rofi-launcher
       bind = ${modifier}SHIFT,W,exec,web-search
-      bind = ${modifier}SHIFT,N,exec,swaync-client -rs
+      bind = ${modifier}SHIFT,N,exec,swaync-client -op
       ${if userMainBrowser == "google-chrome" then ''
 	bind = ${modifier},W,exec,google-chrome-stable
       '' else ''
