@@ -19,6 +19,7 @@
     lshw
     neofetch
     neovim
+    networkmanagerapplet
     nh
     noto-fonts-color-emoji
     ripgrep
