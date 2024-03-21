@@ -37,6 +37,7 @@ in {
       ".local/share/keyrings"
       ".local/share/kwalletd"
       ".local/share/systemsettings"
+      ".mozilla"
       ".ssh"
 #      {
 #        directory = "./local/share/Steam";
