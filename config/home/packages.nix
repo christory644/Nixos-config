@@ -13,6 +13,7 @@ in {
     obs-studio
     spotify
     tree
+    youtube-music
     # custom scripts
     (import ./../scripts/emopicker9000.nix { inherit pkgs; })
     (import ./../scripts/listHyprBindings.nix { inherit pkgs; })

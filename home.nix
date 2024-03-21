@@ -34,6 +34,7 @@ in {
       ".gnupg"
       ".config/discord"
       ".config/spotify"
+      ".config/YouTube Music"
       ".local/share/direnv"
       ".local/share/keyrings"
       ".local/share/kwalletd"
