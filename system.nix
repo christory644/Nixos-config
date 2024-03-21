@@ -53,6 +53,7 @@ in {
 
   environment.variables = {
     FLAKE = "${flakeDir}";
+    EDITOR = "vim";
   };
 
   nix = {
