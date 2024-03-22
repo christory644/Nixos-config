@@ -1,8 +1,11 @@
 { pkgs, inputs, ... }:
 
 {
-  programs.hyprland.enable = true;
-  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    xwayland.enable = true;
+  };
 
   environment.sessionVariables = {
     # stops cursor from becoming invisible, maybe not needed?

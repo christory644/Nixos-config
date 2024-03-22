@@ -41,10 +41,11 @@ in {
       ".local/share/systemsettings"
       ".mozilla"
       ".ssh"
-#      {
-#        directory = "./local/share/Steam";
-#	method = "symlink";
-#      }
+      ".steam"
+      {
+        directory = ".local/share/Steam";
+        method = "symlink";
+      }
     ];
 #    files = [
 #      ".screenrc"
