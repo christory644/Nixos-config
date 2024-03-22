@@ -9,7 +9,9 @@ in {
     discord
     firefox
     font-awesome
+    libvirt
     neovide
+    protonup-qt
     obs-studio
     spotify
     tree
