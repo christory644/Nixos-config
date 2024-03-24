@@ -2,9 +2,36 @@
 
 let inherit (import ../../../options.nix) intelBusID nvidiaBusID;
 in {
-  environment.systemPackages = with pkgs; [
-    nvitop
+  environment.systemPackages =
+    let nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
+      export __NV_PRIME_RENDER_OFFLOAD=1
+      export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA_G0
+      export __GLX_VENDOR_LIBRARY_NAME=nvidia
+      export __VK_LAYER_NV_optimus=NVIDIA_only
+
+      exec "$@"
+    '';
+    in [
+      nvidia-offload
+      pkgs.nvitop
+      pkgs.nvtop
   ];
+
+  nixpkgs.config.packageOverrides = pkgs: {
+    vaapiIntel = pkgs.vaapiIntel.override {
+      enableHybridCodec = true;
+    };
+  };
+
+  hardware.opengl = {
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+      intel-compute-runtime
+    ];
+  };
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -34,7 +61,10 @@ in {
 
     # configure nvidia prime
     prime = {
-      sync.enable = true;
+      offload = {
+        enable = true;
+	enableOffloadCmd = true;
+      };
       intelBusId = "${intelBusID}";
       nvidiaBusId = "${nvidiaBusID}";
     };
