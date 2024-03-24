@@ -11,6 +11,7 @@
     ./flatpak.nix
     ./gpu/intelNvidia.nix
     ./hyprlnd.nix
+    ./jellyfin.nix
     ./logitech.nix
     ./microsoftSurface.nix
     ./ntp.nix
