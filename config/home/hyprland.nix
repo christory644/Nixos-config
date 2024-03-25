@@ -167,6 +167,7 @@ in with lib; {
       bind = ${modifier},G,exec,gimp
       bind = ${modifier}SHIFT,G,exec,godot4
       bind = ${modifier},T,exec,thunar
+      bind = ${modifier},Y,exec,youtube-music --disable-gpu
       bind = ${modifier},M,exec,spotify --disable-gpu
       bind = ${modifier},Q,killactive,
       bind = ${modifier},P,pseudo,
