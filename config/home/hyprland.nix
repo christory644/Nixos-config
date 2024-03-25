@@ -39,6 +39,16 @@ in with lib; {
       monitor= , preferred, auto, 1
       windowrule = fullscreen, ^(wlogout)$
       windowrule = animation fade,^(wlogout)$
+      workspace = 1,
+      workspace = 2,
+      workspace = 3,
+      workspace = 4,
+      workspace = 5,
+      workspace = 6,
+      workspace = 7,
+      workspace = 8,
+      workspace = 9,
+      workspace = 10,
       general {
         gaps_in = 6
         gaps_out = 8
@@ -56,7 +66,9 @@ in with lib; {
         follow_mouse = 1
         touchpad {
           natural_scroll = true
-        }
+	  clickfinger_behavior = true
+	  tap-to-click = true
+	}
         sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
         accel_profile = flat
       }
@@ -79,10 +91,6 @@ in with lib; {
       ${if systemCpuType == "vm" then ''
         env = WLR_NO_HARDWARE_CURSORS,1
         env = WLR_RENDERER_ALLOW_SOFTWARE,1
-      '' else ''
-      ''}
-      ${if systemGpuType == "nvidia" then ''
-        env = WLR_NO_HARDWARE_CURSORS,1
       '' else ''
       ''}
       gestures {
