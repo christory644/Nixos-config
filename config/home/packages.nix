@@ -5,6 +5,7 @@ in {
   home.packages = with pkgs; [
     asciiquarium
     audacity
+    cava
     cmatrix
     discord
     firefox
