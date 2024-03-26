@@ -142,7 +142,6 @@ in with lib; {
       exec-once = nm-applet --indicator
       exec-once = blueman-applet
       exec-once = swayidle -w timeout 720 'swaylock -f' timeout 800 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock -f -c 000000'
-      Exec = env WLR_NO_HARDWARE_CURSORS=1 Hyprland
       dwindle {
         pseudotile = true
         preserve_split = true
