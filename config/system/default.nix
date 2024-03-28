@@ -6,7 +6,6 @@
     ./autorotation.nix
     ./bluetooth.nix
     ./boot.nix
-    ./desktopEnvironment.nix
     ./displayManager.nix
     ./flatpak.nix
     ./gpu/intelNvidia.nix
@@ -23,6 +22,9 @@
     ./services.nix
     ./steam.nix
     ./vm.nix
+
+    # import specializations
+    ./../specializations
   ];
 }
 
