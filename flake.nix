@@ -32,6 +32,7 @@
         inherit inputs;
 	inherit system;
 	inherit username;
+	inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
       };
       modules = [
         impermanence.nixosModules.impermanence

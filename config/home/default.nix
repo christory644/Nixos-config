@@ -3,7 +3,6 @@
     ./bash.nix
     ./fish.nix
     ./gtk-qt.nix
-    ./hyprland.nix
     ./lf.nix
     ./packages.nix
     ./rofi.nix
