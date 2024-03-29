@@ -6,6 +6,7 @@ let
     systemCpuType
     systemGpuType
     mainKbdLayout
+    kbdVariant
     sdlVideoDriver
     secondaryKbdLayout
     theme
@@ -14,7 +15,22 @@ let
 in with lib; {
   specialisation = {
     "${hostname}-hyprland".configuration = {
+      boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
       system.nixos.tags = [ "hyprland" ];
+
+      services.xserver = {
+        enable = true;
+	xkb = {
+	  variant = "${kbdVariant}";
+	  layout = "${mainKbdLayout}, ${secondaryKbdLayout}";
+	};
+	libinput.enable = true;
+	displayManager.sddm = {
+	  enable = true;
+	  wayland.enable = true;
+	  theme = "tokyo-night-sddm";
+	};
+      };
 
       programs.hyprland = {
         enable = true;
@@ -29,11 +45,17 @@ in with lib; {
         NIXOS_OZONE_WL = "1";
       };
 
-      environment.systemPackages = with pkgs; [
+      environment.systemPackages = let
+        sugar = pkgs.callPackage ../pkgs/sddm-sugar-dark.nix {};
+	tokyo-night = pkgs.libsForQt5.callPackage ../pkgs/sddm-tokyo-night.nix {};
+      in with pkgs; [
         (waybar.overrideAttrs (oldAttrs: {
             mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
           })
         )
+	sugar.sddm-sugar-dark
+	tokyo-night
+	pkgs.libsForQt5.qt5.qtgraphicaleffects
       ];
 
       xdg.portal = {
