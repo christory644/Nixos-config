@@ -3,15 +3,19 @@
 let
   hyprplugins = inputs.hyprland-plugins.packages.${pkgs.system};
   inherit (import ../../options.nix)
-    systemCpuType
-    systemGpuType
-    mainKbdLayout
+    flakeDir
     kbdVariant
+    mainKbdLayout
     sdlVideoDriver
     secondaryKbdLayout
+    systemCpuType
+    systemGpuType
     theme
     userKeyboundTerminal
-    userMainBrowser;
+    userMainBrowser
+    username
+    wallpaperDir
+    wallpaperGit;
 in with lib; {
   specialisation = {
     "${hostname}-hyprland".configuration = {
@@ -90,12 +94,53 @@ in with lib; {
       services.blueman.enable = true;
 
     
+      systemd = {
+        user.services.polkit-gnome-authentication-agent-1 = {
+	  description = "polkit-gnome-authentication-agent-1";
+	  wantedBy = [ "graphical-session.target" ];
+	  wants = [ "graphical-session.target" ];
+	  after = [ "graphical-session.target" ];
+	  serviceConfig = {
+	    Type = "simple";
+	    ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+	    Restart = "on-failure";
+	    RestartSec = 1;
+	    TimeoutStopSec = 10;
+	  };
+	};
+      };
+
+      security.polkit.enable = true;
+
+      security.polkit.extraConfig = ''
+        polkit.addRule(function(action, subject) {
+	  if ( subject.isInGroup("users") && (
+	    action.id == org.freedesktop.login1.reboot"
+	    || action.id == org.freedesktop.login1.reboot-multiple-sessions"
+	    || action.id == org.freedesktop.login1.power-off"
+	    || action.id == org.freedesktop.login1.power-off-multiple-sessions"
+	  )) {
+	    return polkitResult.YES;
+	  }
+	)
+      '';
+
       # home manager funzies
       home-manager.users.${username} = let
         colorScheme = inputs.nix-colors.colorSchemes."${theme}";
         themePalette = colorScheme.palette;
       in {
-        imports = [ inputs.nix-colors.homeManagerModules.default ];
+        imports = [ 
+          inputs.nix-colors.homeManagerModules.default
+          ./hyprland/rofi.nix
+	  ./hyprland/gtk-qt.nix
+	  ./hyprland/swappy.nix
+	  ./hyprland/swaylock.nix
+	  ./hyprland/swaync.nix
+	  ./hyprland/waybar.nix
+	  ./hyprland/wlogout.nix
+	];
+
         home.packages = with pkgs; [
           gnome.file-roller
           grim
@@ -108,8 +153,25 @@ in with lib; {
           swaylock
           swaynotificationcenter
           swww
+	  (import ./hyprland/scripts/emopicker9000.nix { inherit pkgs; })
+	  (import ./hyprland/scripts/listHyprBindings.nix { inherit pkgs; })
+	  (import ./hyprland/scripts/rofiLauncher.nix { inherit pkgs; })
+	  (import ./hyprland/scripts/screenshootin.nix { inherit pkgs; })
+	  (import ./hyprland/scripts/taskWaybar.nix { inherit pkgs; })
+	  (import ./hyprland/scripts/themeChange.nix { inherit pkgs; inherit flakeDir; })
+	  (import ./hyprland/scripts/themeSelector.nix { inherit pkgs; })
+	  (import ./hyprland/scripts/wallsetter.nix { inherit pkgs; inherit wallpaperDir; inherit username; inherit wallpaperGit; })
+	  (import ./hyprland/scripts/webSearch.nix { inherit pkgs; })
         ];
   
+        home.file.".emoji".source = ./hyprland/files/emoji;
+        home.file.".base16-themes".source = ./hyprland/files/base16Themes;
+        home.file.".config/swaylock-bg.jpg".source = ./hyprland/files/media/swaylock-bg.jpg;
+        home.file.".config/wlogout/icons" = {
+          source = ./hyprland/files/wlogout;
+	  recursive = true;
+        };
+
         wayland.windowManager.hyprland = {
           enable = true;
           systemd.enable = true;

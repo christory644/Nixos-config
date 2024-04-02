@@ -3,7 +3,7 @@
 let
   palette = config.colorScheme.palette;
   betterTransition = "all 0.3s cubic-bezier(.55,-0.68,.48,1.682)";
-  inherit (import ../../options.nix) slickbar bar-number simplebar use24HourClock;
+  inherit (import ../../../options.nix) slickbar bar-number simplebar use24HourClock;
 in with lib; {
   # Configure & Theme Waybar
   programs.waybar = {

@@ -6,7 +6,6 @@
     ./autorotation.nix
     ./bluetooth.nix
     ./boot.nix
-    ./displayManager.nix
     ./flatpak.nix
     ./gpu/intelNvidia.nix
     ./jellyfin.nix
@@ -16,14 +15,13 @@
     ./opengl.nix
     ./packages.nix
     ./persistence.nix
-    ./polkit.nix
     ./printer.nix
     ./services.nix
     ./steam.nix
     ./vm.nix
 
     # import specializations
-    ./../specializations
+    ../specializations
   ];
 }
 

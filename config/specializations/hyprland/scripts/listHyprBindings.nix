@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  inherit ( import ../../options.nix ) userKeyboundTerminal userMainBrowser;
+  inherit ( import ../../../../options.nix ) userKeyboundTerminal userMainBrowser;
 in
 pkgs.writeShellScriptBin "list-hypr-bindings" ''
   yad --width=800 --height=650 \
