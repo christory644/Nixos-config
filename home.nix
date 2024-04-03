@@ -36,6 +36,7 @@ in {
       ".config/spotify"
       ".config/YouTube Music"
       ".local/share/direnv"
+      ".local/share/keyrings"
       ".local/share/systemsettings"
       ".mozilla"
       ".ssh"

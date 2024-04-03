@@ -16,7 +16,6 @@
 
       home-manager.users.${username} = {
         home.persistence."/persisted/home".directories = [
-          ".local/share/keyrings"
           ".local/share/kwalletd"
         ];
       };
