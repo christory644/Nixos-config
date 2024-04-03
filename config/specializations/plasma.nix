@@ -14,6 +14,10 @@
 	};
       };
 
+      environment.sessionVariables = {
+	SPECIALIZATION = "plasma";
+      };
+
       home-manager.users.${username} = {
         home.persistence."/persisted/home".directories = [
           ".local/share/kwalletd"

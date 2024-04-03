@@ -18,6 +18,10 @@
 	  ];
 	};
       };
+
+      environment.sessionVariables = {
+  	SPECIALIZATION = "awesome";
+      };
     };
   };
 }
