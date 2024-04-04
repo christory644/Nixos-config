@@ -11,11 +11,13 @@
     hyprland-plugins.inputs.hyprland.follows = "hyprland";
     impermanence.url = "github:nix-community/impermanence";
     nix-colors.url = "github:misterio77/nix-colors";
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+    nixos-cosmic.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOs/nixos-hardware/master";
   };
 
-  outputs = inputs@{nixpkgs, nixos-hardware, disko, impermanence, home-manager, ...}:
+  outputs = inputs@{nixpkgs, nixos-hardware, disko, impermanence, home-manager, nixos-cosmic, ...}:
   let
     system = "x86_64-linux";
     inherit (import ./options.nix) username hostname;
@@ -37,6 +39,7 @@
       modules = [
         impermanence.nixosModules.impermanence
         disko.nixosModules.default
+	nixos-cosmic.nixosModules.default
 
 	./hosts
 	./system.nix
