@@ -10,6 +10,7 @@
   # import configured specializations
   imports = [
     ./awesomewm.nix
+    ./cosmic.nix
     ./hyprland.nix
     ./plasma.nix
   ];
