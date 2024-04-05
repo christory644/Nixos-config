@@ -183,7 +183,7 @@ in with lib; {
           extraConfig = let
             modifier = "SUPER";
           in concatStrings [ ''
-            monitor= eDP-1, preferred, auto, 1.333333
+            monitor= eDP-1, preferred, auto, 1
             monitor= , preferred, auto, 1
             windowrule = fullscreen, ^(wlogout)$
             windowrule = animation fade,^(wlogout)$
