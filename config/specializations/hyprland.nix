@@ -222,7 +222,7 @@ in with lib; {
             }
             env = LIBVA_DRIVER_NAME, nvidia
             env = GBM_BACKEND, nvidia-drm
-            env = WLR_DRM_DEVICES, /dev/dri/card1:/dev/dri/card0
+            env = WLR_DRM_DEVICES, /dev/dri/card2:/dev/dri/card1
             env = WLR_NO_HARDWARE_CURSORS, 1
             env = NIXOS_OZONE_WL, 1
             env = NIXPKGS_ALLOW_UNFREE, 1
