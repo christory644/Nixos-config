@@ -14,14 +14,21 @@
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     nixos-cosmic.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
     nixos-hardware.url = "github:NixOs/nixos-hardware/master";
   };
 
-  outputs = inputs@{nixpkgs, nixos-hardware, disko, impermanence, home-manager, nixos-cosmic, ...}:
+  outputs = inputs@{nixpkgs, nixpkgs-stable, nixos-hardware, disko, impermanence, home-manager, nixos-cosmic, ...}:
   let
     system = "x86_64-linux";
     inherit (import ./options.nix) username hostname;
     pkgs = import nixpkgs {
+      inherit system;
+      config = {
+        allowUnfree = true;
+      };
+    };
+    pkgs-stable = import nixpkgs-stable {
       inherit system;
       config = {
         allowUnfree = true;
@@ -34,6 +41,7 @@
         inherit inputs;
 	inherit system;
 	inherit username;
+	inherit pkgs-stable;
 	inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
       };
       modules = [
