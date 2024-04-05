@@ -11,7 +11,6 @@
     font-awesome
     libvirt
     neovide
-    protonup-qt
     obs-studio
     spotify
     tree
