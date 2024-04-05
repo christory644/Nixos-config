@@ -35,15 +35,18 @@ in {
       ".config/discord"
       ".config/spotify"
       ".config/YouTube Music"
+      ".local/share/applications"
       ".local/share/direnv"
       ".local/share/keyrings"
       ".local/share/systemsettings"
       ".mozilla"
       ".ssh"
+      ".steam"
+      {
+        directory = ".local/share/Steam";
+	method = "symlink";
+      }
     ];
-#    files = [
-#      ".screenrc"
-#    ];
     allowOther = true;
   };
 

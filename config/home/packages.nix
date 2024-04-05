@@ -12,6 +12,7 @@
     libvirt
     neovide
     obs-studio
+    protonup-qt
     spotify
     tree
     youtube-music
