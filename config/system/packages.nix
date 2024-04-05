@@ -48,7 +48,6 @@
     mtr.enable = true;
     # add this back once plasma is fully removed
     #seahorse.enable = true;
-    steam.gamescopeSession.enable = true;
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
