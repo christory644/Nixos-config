@@ -17,21 +17,21 @@ in {
       pkgs.nvtop
   ];
 
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override {
-      enableHybridCodec = true;
-    };
-  };
+#  nixpkgs.config.packageOverrides = pkgs: {
+#    vaapiIntel = pkgs.vaapiIntel.override {
+#      enableHybridCodec = true;
+#    };
+#  };
 
-  hardware.opengl = {
-    extraPackages = with pkgs; [
-      intel-media-driver
-      vaapiIntel
-      vaapiVdpau
-      libvdpau-va-gl
-      intel-compute-runtime
-    ];
-  };
+#  hardware.opengl = {
+#    extraPackages = with pkgs; [
+#      intel-media-driver
+#      vaapiIntel
+#      vaapiVdpau
+#      libvdpau-va-gl
+#      intel-compute-runtime
+#    ];
+#  };
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
