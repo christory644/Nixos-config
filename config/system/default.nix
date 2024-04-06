@@ -17,7 +17,7 @@
     ./persistence.nix
     ./printer.nix
     ./services.nix
-    ./steam.nix
+#    ./steam.nix
     ./vm.nix
 
     # import specializations
