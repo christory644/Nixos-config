@@ -64,9 +64,9 @@ in with lib; {
       ];
 
       xdg.portal = {
-        enable     = true;
-            extraPortals = [ 
-              pkgs.xdg-desktop-portal-gtk
+        enable = true;
+        extraPortals = [ 
+          pkgs.xdg-desktop-portal-gtk
           pkgs.xdg-desktop-portal
         ];
         configPackages = [
@@ -211,18 +211,17 @@ in with lib; {
               kb_layout = ${mainKbdLayout}, ${secondaryKbdLayout}
 	      kb_options = grp:alt_shift_toggle
               kb_options=caps:super
-              follow_mouse = 1
+              follow_mouse = 0
               touchpad {
                 natural_scroll = true
-	       clickfinger_behavior = true
-	       tap-to-click = true
+	        clickfinger_behavior = true
+	        tap-to-click = true
 	      }
               sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
               accel_profile = flat
             }
             env = LIBVA_DRIVER_NAME, nvidia
             env = GBM_BACKEND, nvidia-drm
-            env = WLR_DRM_DEVICES, /dev/dri/card2:/dev/dri/card1
             env = WLR_NO_HARDWARE_CURSORS, 1
             env = NIXOS_OZONE_WL, 1
             env = NIXPKGS_ALLOW_UNFREE, 1
@@ -281,7 +280,6 @@ in with lib; {
               }
             }
             exec-once = $POLKIT_BIN
-            exec-once = dbus-update-activation-environment --systemd --all
             exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
             exec-once = swww init
             exec-once = waybar
