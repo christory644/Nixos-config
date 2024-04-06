@@ -50,7 +50,7 @@ in {
   # system flags, to trigger functionality that may not be needed for all systems
   enablePrinting = true;
   enableNTP = true;
-  enableFlatpak = false;
+  enableFlatpak = true;
   enableVirtualization = false;
   enableLogitechSupport = true;
   enableAppimageSupport = true;
