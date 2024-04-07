@@ -28,6 +28,7 @@ lib.mkIf (enableFlatpak == true) {
       directories = [
         ".cache/flatpak"
         ".local/share/flatpak"
+	".var/app"
       ];
     };
   };
