@@ -41,11 +41,6 @@ in {
       ".local/share/systemsettings"
       ".mozilla"
       ".ssh"
-      ".steam"
-      {
-        directory = ".local/share/Steam";
-	method = "symlink";
-      }
     ];
     allowOther = true;
   };
