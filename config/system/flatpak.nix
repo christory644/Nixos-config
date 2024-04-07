@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, username, ... }:
 
 let inherit (import ../../options.nix) enableFlatpak; in
 lib.mkIf (enableFlatpak == true) {
@@ -16,6 +16,21 @@ lib.mkIf (enableFlatpak == true) {
   xdg.portal.extraPortals = [
     pkgs.xdg-desktop-portal-kde
   ];
+
+  environment.persistence."/persisted/system" = {
+    directories = [
+      "/var/lib/flatpak"
+    ];
+  };
+
+  home-manager.users.${username} = {
+    home.persistence."/persisted/home" = {
+      directories = [
+        ".cache/flatpak"
+        ".local/share/flatpak"
+      ];
+    };
+  };
 }
 
 
