@@ -13,6 +13,7 @@
     ./cosmic.nix
     ./hyprland.nix
     ./plasma.nix
+    ./virtualization.nix
   ];
 }
 

@@ -57,5 +57,8 @@ in {
   enableBluetoothSupport = true;
   enableMicrosoftSurfaceSupport = true;
   enableAutorotationSupport = true;
+
+  # vfio Ids, used for gpu pass through during virutalization
+  vfioIds = [ "10de:25a0" ];
 }
 
