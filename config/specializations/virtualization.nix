@@ -5,11 +5,6 @@ in {
     "${hostname}-gpuPassThroughVirt".configuration = {
       system.nixos.tags = [ "gpuPassThroughVirt" ];
 
-      # import a ui
-      imports = [
-        ./hyprland.nix
-      ];
-
       # configure kernel options to ensure IOMMU and KVM support is on.
       boot = {
         kernelModules = [ "kvm-${systemCpuType}" "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ];
