@@ -8,7 +8,7 @@
     ./boot.nix
     ./flatpak.nix
     ./gpu/intelNvidia.nix
-#    ./jellyfin.nix
+    ./jellyfin.nix
     ./logitech.nix
     ./microsoftSurface.nix
     ./ntp.nix
