@@ -15,6 +15,7 @@
     ./opengl.nix
     ./packages.nix
     ./persistence.nix
+    ./plex.nix
     ./printer.nix
     ./services.nix
     ./vm.nix
