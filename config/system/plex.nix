@@ -7,9 +7,10 @@
     dataDir = "/srv/plex";
   };
 
-  environment.persistence."/persisted/system" = {
-    hideMounts = true;
-    directories = [
+  services.tautulli.enable = true;
+
+  home-manager.users.${username} = {
+    home.persistence."/persisted/home".directories = [
       "/srv/plex"
     ];
   };
