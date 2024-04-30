@@ -11,7 +11,10 @@
 
   home-manager.users.${username} = {
     home.persistence."/persisted/home".directories = [
-      "/srv/plex"
+      { 
+        directory = "/srv/plex";
+	method = "symlink";
+      }
     ];
   };
 }
