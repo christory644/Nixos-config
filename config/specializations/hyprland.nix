@@ -301,11 +301,7 @@ in with lib; {
             bind = ${modifier}SHIFT,Return,exec,rofi-launcher
             bind = ${modifier}SHIFT,W,exec,web-search
             bind = ${modifier}SHIFT,N,exec,swaync-client -op
-            ${if userMainBrowser == "google-chrome" then ''
-	      bind = ${modifier},W,exec,google-chrome-stable
-            '' else ''
-	      bind = ${modifier},W,exec,${userMainBrowser}
-            ''}
+	    bind = ${modifier},W,exec,nvidia-offload ${userMainBrowser} --disable-gpu
             bind = ${modifier},E,exec,emopicker9000
             bind = ${modifier},S,exec,screenshootin
             bind = ${modifier},D,exec,discord --disable-gpu

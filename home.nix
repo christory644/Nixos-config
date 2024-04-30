@@ -32,6 +32,7 @@ in {
       "Videos"
       "VirtualBox VMs"
       ".gnupg"
+      ".config/chromium"
       ".config/discord"
       ".config/spotify"
       ".config/YouTube Music"

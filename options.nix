@@ -24,7 +24,7 @@ in {
   theme = "catppuccin-macchiato";
   use24HourClock = false;
   userShell = "fish"; # options: bash, fish, zsh
-  userMainBrowser = "firefox";
+  userMainBrowser = "chromium";
   userKeyboundTerminal = "kitty"; # terminal keybound in hyprland
   wallpaperGit = "https://github.com/christory644/wallpapers.git";
   wallpaperDir = "${userHome}/Pictures/Wallpapers";
