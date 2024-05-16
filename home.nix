@@ -34,6 +34,7 @@ in {
       ".gnupg"
       ".config/chromium"
       ".config/discord"
+      ".config/Slack"
       ".config/spotify"
       ".config/YouTube Music"
       ".local/share/applications"
