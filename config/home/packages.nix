@@ -17,6 +17,7 @@
     spotify
     tree
     youtube-music
+    zoom-us
   ];
 
   programs.gh.enable = true;
